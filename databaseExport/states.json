@@ -1,0 +1,101 @@
+[{
+  "_id": {
+    "$oid": "63fcb5d12fd492fdcc9152e6"
+  },
+  "state": "MP",
+  "totalcases": 122222,
+  "recovered": 12222,
+  "activecases": 22212,
+  "death": 12,
+  "vaccinated": 12312,
+  "createdon": {
+    "$date": {
+      "$numberLong": "1677436200000"
+    }
+  },
+  "isapproved": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63fda17d62266e1f84f6c44c"
+  },
+  "state": "MP",
+  "totalcases": 122244,
+  "recovered": 12222,
+  "activecases": 22212,
+  "death": 12,
+  "vaccinated": 12312,
+  "createdon": {
+    "$date": {
+      "$numberLong": "1677522600000"
+    }
+  },
+  "isapproved": true,
+  "__v": 0,
+  "dateapproved": {
+    "$date": {
+      "$numberLong": "1677522600000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63fda19662266e1f84f6c455"
+  },
+  "state": "UP",
+  "totalcases": 122244,
+  "recovered": 12222,
+  "activecases": 22212,
+  "death": 12,
+  "vaccinated": 12312,
+  "createdon": {
+    "$date": {
+      "$numberLong": "1677522600000"
+    }
+  },
+  "isapproved": true,
+  "__v": 0,
+  "dateapproved": {
+    "$date": {
+      "$numberLong": "1677522600000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63fde7a4b141010b89aecaf7"
+  },
+  "state": "ODISHA",
+  "totalcases": 122244,
+  "recovered": 12222,
+  "activecases": 22212,
+  "death": 12,
+  "vaccinated": 12312,
+  "createdon": {
+    "$date": {
+      "$numberLong": "1677522600000"
+    }
+  },
+  "isapproved": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63fdf3e2b141010b89aecb7c"
+  },
+  "state": "GUJRAT",
+  "totalcases": 122244,
+  "recovered": 12222,
+  "activecases": 22212,
+  "death": 323,
+  "vaccinated": 233324,
+  "createdon": {
+    "$date": {
+      "$numberLong": "1677522600000"
+    }
+  },
+  "isapproved": true,
+  "__v": 0,
+  "dateapproved": {
+    "$date": {
+      "$numberLong": "1677522600000"
+    }
+  }
+}]

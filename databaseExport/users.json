@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "63f5eb185ed13bb49f725519"
+  },
+  "username": "up@gmail.com",
+  "password": "user",
+  "state": "UP",
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "63f5eba65ed13bb49f72551a"
+  },
+  "username": "mp@gmail.com",
+  "password": "user",
+  "state": "MP",
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "63f9f68ff41e1caea74940c4"
+  },
+  "username": "admin@gmail.com",
+  "password": "admin",
+  "role": "admin"
+},{
+  "_id": {
+    "$oid": "63fddf4c16fef5167730b489"
+  },
+  "username": "gujrat@gmail.com",
+  "password": "user",
+  "state": "GUJRAT",
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "63fddf4c16fef5167730b48a"
+  },
+  "username": "odisha@gmail.com",
+  "password": "user",
+  "state": "ODISHA",
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "63fdf7e216fef5167730b48e"
+  },
+  "username": "maharashtra@gmail.com",
+  "password": "user",
+  "state": "MAHARASHTRA",
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "63fdf7e216fef5167730b48f"
+  },
+  "username": "haryana@gmail.com",
+  "password": "user",
+  "state": "HARYANA",
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "63fdf7e216fef5167730b490"
+  },
+  "username": "karnataka@gmail.com",
+  "password": "user",
+  "state": "KARNATAKA",
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "63fdf7e216fef5167730b491"
+  },
+  "username": "kerala@gmail.com",
+  "password": "user",
+  "state": "KERALA",
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "63fdf7e216fef5167730b492"
+  },
+  "username": "punjab@gmail.com",
+  "password": "user",
+  "state": "PUNJAB",
+  "role": "user"
+}]

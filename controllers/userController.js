@@ -49,7 +49,7 @@ class UserController {
         res.send({ status: "failed", message: "All Fields are Required" });
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       res.send({ status: "failed", message: "Unable to Login" });
     }
   };
@@ -84,7 +84,7 @@ class UserController {
         $and: [{ state: state }, { createdon: createdon }],
       });
       if (exist) {
-        console.log("exist date and data");
+        // console.log("exist date and data");
         return res.send({
           status: "failed",
           message: "Already Exist for the day plz choose edit option",
@@ -118,7 +118,7 @@ class UserController {
 
   static getStateCovidData = async (req, res) => {
     try {
-      console.log("getstate in controller", req);
+      // console.log("getstate in controller", req);
       const { id } = req.params;
 
       const data = await StateModel.findById({ _id: id });
@@ -166,7 +166,7 @@ class UserController {
 
       const exist = await StateModel.findById({ _id: id });
       if (!exist) {
-        console.log("not exist date and data");
+        // console.log("not exist date and data");
         return res.send({
           status: "failed",
           message: "not Exist for the day plz choose add option",
@@ -243,36 +243,71 @@ class UserController {
 
   static getStateCovidDataForPublic = async (req, res) => {
     try {
-      // console.log(state, req.body);
+      // console.log("req in controller", req.body);
 
-      const data = await StateModel.aggregate([
-        {
-          $match: { isapproved: true },
-        },
-        {
-          $group: {
-            _id: { State: "$state" },
-            Total: { $sum: "$totalcases" },
-            Recovered: { $sum: "$recovered" },
-            Active: { $sum: "$activecases" },
-            Death: { $sum: "$death" },
-            Vaccinated: { $sum: "$vaccinated" },
-            LastUpdated: { $max: "$dateapproved" },
+      const { searchState } = req.body;
+      const { sort } = req.body;
+
+      let sorting = 1;
+      if (sort === "desc") sorting = -1;
+
+      if (searchState?.label == null || searchState.label === "ALL") {
+        
+        const data = await StateModel.aggregate([
+          { $match: { isapproved: true } },
+          { $sort: { state: sorting } },
+          {
+            $group: {
+              _id: { State: "$state" },
+              Total: { $sum: "$totalcases" },
+              Recovered: { $sum: "$recovered" },
+              Active: { $sum: "$activecases" },
+              Death: { $sum: "$death" },
+              Vaccinated: { $sum: "$vaccinated" },
+              LastUpdated: { $max: "$dateapproved" },
+            },
           },
-        },
-      ]);
-      console.log(data);
+        ]);
 
-      if (data)
+        if (data)
+          return res.send({
+            status: "success",
+            message: "Data fetched",
+            data: data,
+          });
         return res.send({
-          status: "success",
-          message: "Data fetched",
-          data: data,
+          status: "failed",
+          message: "error while fetching details of covid",
         });
-      return res.send({
-        status: "failed",
-        message: "error while fetching details of covid",
-      });
+      } else {
+        const data = await StateModel.aggregate([
+          { $match: { isapproved: true, state: searchState.label } },
+          { $sort: { state: sorting } },
+
+          {
+            $group: {
+              _id: { State: "$state" },
+              Total: { $sum: "$totalcases" },
+              Recovered: { $sum: "$recovered" },
+              Active: { $sum: "$activecases" },
+              Death: { $sum: "$death" },
+              Vaccinated: { $sum: "$vaccinated" },
+              LastUpdated: { $max: "$dateapproved" },
+            },
+          },
+        ]);
+
+        if (data)
+          return res.send({
+            status: "success",
+            message: "Data fetched",
+            data: data,
+          });
+        return res.send({
+          status: "failed",
+          message: "error while fetching details of covid",
+        });
+      }
     } catch (e) {
       // console.log(e);
       return res.send({ status: "failed", message: e.message });

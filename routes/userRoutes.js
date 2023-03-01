@@ -18,6 +18,7 @@ router.use('/approvestatecoviddata/:id', checkUserAuth)
 
 // Public Routes
 router.post('/login', UserController.userLogin)
+router.post('/getstatecoviddataforpublic/', UserController.getStateCovidDataForPublic)
 
 
 // Protected Routes
@@ -28,7 +29,6 @@ router.delete('/deletestatecoviddata/:state/:id', UserController.deleteStateCovi
 router.get('/getstatecoviddata/:state/:id', UserController.getStateCovidData)
 
 router.get('/getstatecoviddataforuser/:state', UserController.getStateCovidDataForUser)
-router.get('/getstatecoviddataforpublic/', UserController.getStateCovidDataForPublic)
 router.get('/getstatecoviddataforAdmin/', UserController.getStateCovidDataForAdmin)
 
 router.get('/approvestatecoviddata/:id', UserController.approveStateCovidData)
